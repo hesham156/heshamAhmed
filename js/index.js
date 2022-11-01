@@ -1,5 +1,13 @@
 let lnk = document.getElementById("lnk");
-console.log(lnk);
+let div = document.createElement("div");
+
+setTimeout(() => {
+  div.classList.remove("spin");
+}, 7000);
+window.onload = () => {
+  div.classList.add("spin");
+  document.body.appendChild(div);
+};
 window.onscroll = () => {
   scrollY >= 600 ? console.log("g") : console.log("T");
 };
@@ -62,23 +70,30 @@ console.log(navhref);
 const dark = document.querySelector(".dark");
 var r = document.querySelector(":root");
 
-// const chbg = () => {
-//   if (localStorage.getItem("them") === "dark") {
-//     document.body.style.backgroundColor = "white";
-//     document.querySelector(".navebar").style.backgroundColor =
-//       "var( --primary-color)";
-//     r.style.setProperty("--secondry-color", "#5c00f1");
-//     r.style.setProperty("--icon-color", "#5c00f1");
-//     r.style.setProperty("--color", "white");
-//   } else {
-//     document.body.style.backgroundColor = "#03022a";
-//     document.body.style.color = "white";
-//     document.querySelector(".navebar").style.backgroundColor = "#161832";
-//     r.style.setProperty("--secondry-color", "#f2f3fb");
-//     r.style.setProperty("--icon-color", "f2f3fb");
-//     r.style.setProperty("--color", "black");
-//   }
-// };
+const chbg = () => {
+  if (localStorage.getItem("them") === "dark") {
+    r.style.setProperty("--icon-color", "aliceblue");
+    r.style.setProperty("--primary-color", "#161832");
+    r.style.setProperty("--secondry-color", "#d13949");
+    r.style.setProperty("--active-color", "#5c00f1");
+    r.style.setProperty("--global-color", "#03022a");
+  } else {
+    r.style.setProperty("--icon-color", "black");
+    r.style.setProperty("--primary-color", "#f2f3fb");
+    r.style.setProperty("--secondry-color", "#5c00f1");
+    r.style.setProperty("--active-color", "#d13949");
+    r.style.setProperty("--global-color", "white");
+  }
+};
+dark.onclick = () => {
+  if (localStorage.getItem("them") === "dark") {
+    localStorage.setItem("them", "normal");
+  } else {
+    localStorage.setItem("them", "dark");
+  }
+  chbg();
+};
+chbg();
 // dark.onclick = () => {
 //   if (localStorage.getItem("them") === "dark") {
 //     localStorage.setItem("them", "normal");
