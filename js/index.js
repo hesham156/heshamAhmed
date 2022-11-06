@@ -1,4 +1,6 @@
 let lnk = document.getElementById("lnk");
+let about = document.getElementById("aboutme");
+let home = document.getElementById("home");
 let div = document.createElement("div");
 
 window.onscroll = () => {
@@ -29,8 +31,8 @@ lnks.map((link) => {
   let a = document.createElement("a");
   a.id = "navhref";
   window.location.hash == "#" + link.replace(" ", "")
-    ? a.classList.add("active", "w-100")
-    : a.classList.add("w-100");
+    ? a.classList.add("active", "w-100", "center")
+    : a.classList.add("w-100", "center");
   i.classList.add("fa-solid", icons[lnks.indexOf(link)]);
 
   p.innerText = link.toUpperCase();
@@ -59,7 +61,6 @@ window.onscroll = () => {
     select(a, 3, "active");
   }
 };
-console.log(navhref);
 const dark = document.querySelector(".dark");
 var r = document.querySelector(":root");
 
@@ -68,14 +69,16 @@ const chbg = () => {
     r.style.setProperty("--icon-color", "aliceblue");
     r.style.setProperty("--primary-color", "#161832");
     r.style.setProperty("--secondry-color", "#d13949");
-    r.style.setProperty("--active-color", "#5c00f1");
+    r.style.setProperty("--active-color", "#03022a");
     r.style.setProperty("--global-color", "#03022a");
+    r.style.setProperty("--card-bg", "#191c29");
   } else {
     r.style.setProperty("--icon-color", "black");
     r.style.setProperty("--primary-color", "#f2f3fb");
     r.style.setProperty("--secondry-color", "#5c00f1");
-    r.style.setProperty("--active-color", "#d13949");
+    r.style.setProperty("--active-color", "#03022a");
     r.style.setProperty("--global-color", "white");
+    r.style.setProperty("--card-bg", "aliceblue");
   }
 };
 dark.onclick = () => {
@@ -87,63 +90,57 @@ dark.onclick = () => {
   chbg();
 };
 chbg();
-// typewrite effect
-var TxtType = function (el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 2000;
-  this.txt = "";
-  this.tick();
-  this.isDeleting = false;
+let skill = [
+  ["HTML", "90%"],
+  ["CSS", "90%"],
+  ["JS", "85%"],
+  ["Bootstrap", "95%"],
+  ["ReactJS", "85%"],
+];
+const createCard = () => {
+  for (let i = 0; i < skill.length; i++) {
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+    let div4 = document.createElement("div");
+    let div3 = document.createElement("div");
+    let h4 = document.createElement("h4");
+    h4.innerText = skill[i][0];
+    div1.classList.add("skill-card");
+    div2.classList.add("card-top", "center", "w-100");
+    div3.classList.add("card-bottom", "center", "w-100");
+    div4.role = "progressbar";
+    // div4.ariaValueNow = "65";
+    div4.ariaValueMin = "0";
+    div4.ariaValueMax = "100";
+    div4.style = `--value:${skill[i][1].replace("%", "")}`;
+    div3.appendChild(h4);
+    div2.appendChild(div4);
+    div1.appendChild(div2);
+    div1.appendChild(div3);
+    about.appendChild(div1);
+  }
 };
+createCard();
 
-TxtType.prototype.tick = function () {
-  var i = this.loopNum % this.toRotate.length;
-  var fullTxt = this.toRotate[i];
-
-  if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
-  // console.log(this.txt.length - 1);
-  this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
-
-  var that = this;
-  var delta = 200 - Math.random() * 100;
-
-  if (this.isDeleting) {
-    delta /= 2;
-  }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === "") {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
-  }
-
-  setTimeout(function () {
-    that.tick();
-  }, delta);
-};
-
-window.onload = function () {
-  var elements = document.getElementsByClassName("typewrite");
-  for (var i = 0; i < elements.length; i++) {
-    var toRotate = elements[i].getAttribute("data-type");
-    var period = elements[i].getAttribute("data-period");
-    if (toRotate) {
-      new TxtType(elements[i], JSON.parse(toRotate), period);
-    }
-  }
-  // INJECT CSS
-  var css = document.createElement("style");
-  css.type = "text/css";
-  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid black}";
-  document.body.appendChild(css);
-};
-let home = document.getElementById("home");
+// .skill-card::after {
+//   position: absolute;
+//   content: "";
+//   top: calc(var(--card-height) / 6);
+//   left: 0;
+//   right: 0;
+//   z-index: -1;
+//   height: 100%;
+//   width: 100%;
+//   margin: 0 auto;
+//   transform: scale(0.8);
+//   filter: blur(calc(var(--card-height) / 6));
+//   background-image: linear-gradient(
+//     var(--rotate),
+//     var(--secondry-color),
+//     var(--active-color) 43%,
+//     var(--secondry-color)
+//   );
+//   opacity: 1;
+//   transition: opacity 0.5s;
+//   animation: spine 2.5s linear infinite;
+// }
