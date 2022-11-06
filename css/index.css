@@ -6,18 +6,21 @@
   --color: aliceblue;
   --icon-color: black;
   --active-color: #d13949;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system,
+    system-ui, sans-serif;
 }
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 5px;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
   background-color: var(--primary-color);
   border-radius: 50px;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: var(--secondry-color);
   border-radius: 50px;
 }
@@ -41,6 +44,18 @@ ul {
   list-style: none;
   margin: 0 !important;
   padding: 0 !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px 0px 10px;
+  font-weight: 600;
+  color: var(--lightest-slate);
+  line-height: 1.1;
+  font-family: var(--font-sans);
 }
 .dark {
   width: 50px;
@@ -99,6 +114,9 @@ ul {
   transition: var(--transition);
   font-size: 20px;
 }
+.navebar .lnk ul li a:hover {
+  background: var(--active-color) !important;
+}
 .navebar .social li {
   margin: 15px;
   font-size: 20px;
@@ -111,6 +129,12 @@ ul {
 }
 /* header */
 header {
+  background-image: url("../asset/img/pattern.png");
+  position: relative;
+  background-repeat: repeat;
+  background-position-x: center;
+  animation: pattern-anim 50s infinite;
+  background-color: var(--global-color);
   width: 75%;
   min-height: 100vh;
   max-width: calc(100% - 315px);
@@ -128,7 +152,7 @@ header section {
 .navebar .lnk ul li a p {
   margin: 0;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1090px) {
   .navebar .lnk ul li a i {
     display: block;
   }
@@ -154,7 +178,6 @@ header section {
     top: -89vh;
     background: var(--primary-color);
     display: flex;
-
     align-items: center;
     padding: 20px 69px;
   }
@@ -187,6 +210,14 @@ header section {
     left: 0;
     top: 0px;
   }
+  .shape {
+    width: 90% !important;
+    height: 50% !important;
+    position: absolute;
+  }
+  #home .container img {
+    display: none;
+  }
 }
 
 /* #03022a */
@@ -197,4 +228,66 @@ header section {
   height: 100vh;
   position: fixed;
   background-color: black;
+}
+.heart-icon {
+  margin: 10px;
+}
+.heart-icon {
+  animation: ani 5s linear infinite;
+}
+#home {
+  height: 100vh;
+  overflow: hidden;
+}
+#home .container .center {
+  z-index: 1111111;
+}
+#home .container img {
+  position: absolute;
+  right: 9%;
+}
+@keyframes pattern-anim {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 800px;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-radius: 76% 24% 53% 47% / 48% 23% 77% 52% 76% 24% 53% 47% / 48% 23%
+      77% 52%;
+  }
+}
+.cv-btn {
+  padding: 12px 40px;
+  background: var(--secondry-color);
+  color: var(--color);
+  border-radius: 4px;
+  transition: var(--transition);
+  margin: 10px;
+}
+.cv-btn:hover {
+  color: var(--color);
+  background-color: var(--active-color);
+}
+.shape {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  width: 500px;
+  transition: var(--transition);
+  height: 500px;
+  background: var(--secondry-color);
+  background-image: linear-gradient(
+    45deg,
+    var(--secondry-color) 0%,
+    var(--active-color) 100%
+  );
+  border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+  animation: spin 50s infinite;
 }
