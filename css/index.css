@@ -8,7 +8,12 @@
   inherits: false;
   initial-value: 0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
+*{
+  transition: var(--transition);
+}
 :root {
   --transition: all 0.3s ease-in-out;
   --color: aliceblue;
@@ -59,7 +64,9 @@ a {
 a:hover{
   color: var(--color);
 }
-
+.boint{
+  display: none;
+}
 ul {
   list-style: none;
   margin: 0 !important;
@@ -254,7 +261,8 @@ header {
 }
 header section {
   height: auto;
-  min-height: 90vh;
+  /* min-height: 90vh; */
+  margin: 40px 0;
 }
 .cv-btn:hover:after,.cv-btn:hover:before {
   width: 100px !important;
@@ -313,16 +321,17 @@ header section {
 }
 div[role="progressbar"] {
   --size: 10rem;
-  --fg: var(--active-color);
-  --bg: var(--color);
+  --fg: var(--icon-color);
+  --bg: var(--card-bg);
   --pgPercentage: var(--secondry-color);
-  animation: growProgressBar 3s 1 forwards;
+  animation: upDown 2s  infinite alternate linear;
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
   display: grid;
   margin: 10px;
   place-items: center;
+  transition:var(--transition);
   background: radial-gradient(
       closest-side,
       var(--secondry-color) 80%,
@@ -337,6 +346,14 @@ div[role="progressbar"] {
 div[role="progressbar"]::before {
   counter-reset: percentage var(--value);
   content: counter(percentage) "%";
+  transition:var(--transition);
+
+}
+div[role="progressbar"]:hover{
+    animation: growProgressBar 2s 1 forwards ;
+    transition:var(--transition);
+
+  
 }
 .skill-card {
   min-width: 255px;
@@ -448,6 +465,21 @@ div[role="progressbar"]::before {
     flex-wrap: unset !important;
     justify-content: flex-start !important;
   }
+  .boint{
+    display: flex;
+  }
+  .boint button{
+    height: 10px;
+    
+    width: 10px;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    margin: 1px;
+  }
+  .boint .active{
+    background-color: var(--secondry-color) !important;
+  }
 
 }
 
@@ -497,4 +529,60 @@ div[role="progressbar"]::before {
     font-size: 80px;
     opacity: 0.1;
   }
+}
+@keyframes upDown{
+  0%{
+    margin-bottom: 0;
+  }
+  100%{
+    margin-bottom: -150px;
+  }
+}
+#allPro{
+  margin-top: 40px;
+}
+.pro-card{
+  min-width: 315px;
+  max-width: 400px;
+  height: 250px;
+  margin: 10px;
+}
+.pro-ditails{
+  position: absolute;
+height: 0%;
+bottom: 0;
+overflow: hidden;
+}
+.pro-ditails p {
+  margin: 0;
+}
+.pro-card:hover .pro-ditails{
+  height: 100%;
+  background-color: var(--primary-color);
+
+}
+.pro-imgs-bar{
+  border: 4px solid  var(--secondry-color);
+  border-radius: 5px;
+  height: 100%;
+
+}
+
+
+.pro-imgs-bar div button{
+  width: 60px;
+  height: 60px;
+  border: 0;
+  border-radius: 50%;
+  background-color: black !important;
+  opacity: 0.5;
+  color: aliceblue;
+}
+.pro-imgs-bar div button:hover{
+  opacity: 1;
+}
+.pro-icons a {
+  font-size: 21px;
+    color: var(--secondry-color);
+    margin: 10px;
 }
