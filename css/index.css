@@ -3,6 +3,11 @@
   initial-value: 132deg;
   inherits: false;
 }
+@property --pgPercentage {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
 
 :root {
   --transition: all 0.3s ease-in-out;
@@ -23,7 +28,7 @@
 body::-webkit-scrollbar {
   width: 5px;
 }
-#aboutme::-webkit-scrollbar {
+#about::-webkit-scrollbar {
   width: 0;
 }
 body::-webkit-scrollbar-track {
@@ -51,6 +56,10 @@ body {
 a {
   text-decoration: none !important;
 }
+a:hover{
+  color: var(--color);
+}
+
 ul {
   list-style: none;
   margin: 0 !important;
@@ -83,17 +92,53 @@ h6 {
   color: var(--icon-color);
   right: 16px;
 }
+.loves{
+  width: 100%;
+  position: fixed;
+  z-index: 11111111111111111111111;
+  background: var(--active-color);
+  top: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.loves i{
+  font-size: 20px;
+  transition: var(--transition);
+  position: absolute;
+}
+.loves i:first-child{
+  animation: loves 2s linear infinite  ;
+}
+.loves i:nth-child(3){
+  animation: loves 2s linear infinite ;
+   animation-delay: 1s;
+}
+.loves i:last-child{
+  animation: loves 2s linear infinite ;
+   animation-delay: 2s;
+}
+
 /* navebar */
+.btn-nave{
+display: none;}
 .navebar {
   height: 100vh;
-  width: 25%;
-  min-width: 315px;
+  /* width: 25% !important; */
+  min-width: 420px;
   background: var(--primary-color);
   color: aliceblue;
   position: fixed;
   left: 0;
   transition: var(--transition);
   top: 0;
+}
+.navebar .container div{
+  margin-top: 10px;
+}
+.navebar .container .lnk ul li{
+  margin: 10px 0;
 }
 .navebar .logo {
   padding-top: 50px;
@@ -150,6 +195,35 @@ h6 {
 .navebar .lnk ul li a::after,.cv-btn::after {
   right: 10px;
 }
+.navebar .lnk ul li a:hover::after,
+.navebar .lnk ul li a:hover::before,
+.active::after,
+.active::before{
+  width: 250px !important;
+  height: 250px !important;
+}
+.navebar .social li {
+  margin: 15px;
+  font-size: 20px;
+}
+.navebar .lnk ul li a i {
+  z-index: 11111;
+}
+.navebar .lnk ul li a p {
+  margin: 0;
+  z-index: 11111;
+}
+.nav-footer{
+  position: absolute;
+  bottom: 10px;
+  color: var(--icon-color);
+}
+.fa-heart{
+color: var(--secondry-color);
+}
+.social li a {
+  color: var(--icon-color);
+}
 
 .head::before {
   left: -30px;
@@ -159,30 +233,10 @@ h6 {
   right: -30px;
   background-color: var(--secondry-color) !important;
 }
-
-.navebar .lnk ul li a:hover::after,
-.navebar .lnk ul li a:hover::before,
-.active::after,
-.active::before{
-  width: 250px !important;
-  height: 250px !important;
+.head {
+  position: absolute;
+  top: -30px;
 }
-.cv-btn:hover:after,.cv-btn:hover:before {
-  width: 100px !important;
-  height: 100px !important;
-  z-index: -111;
-}
-a:hover{
-  color: var(--color);
-}
-.navebar .social li {
-  margin: 15px;
-  font-size: 20px;
-}
-.social li a {
-  color: var(--icon-color);
-}
-
 /* header */
 header {
   background-image: url("../asset/img/pattern.png");
@@ -202,94 +256,22 @@ header section {
   height: auto;
   min-height: 90vh;
 }
-.navebar .lnk ul li a i {
-  display: none;
+.cv-btn:hover:after,.cv-btn:hover:before {
+  width: 100px !important;
+  height: 100px !important;
+  z-index: -111;
 }
-.navebar .lnk ul li a p {
-  margin: 0;
-  z-index: 11111;
+#home {
+  height: 100vh;
+  overflow: hidden;
 }
-@media only screen and (max-width: 1090px) {
-  .navebar .lnk ul li a i {
-    display: block;
-  }
-  .navebar {
-    width: 100%;
-    z-index: 111111;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: unset;
-    bottom: 0;
-    min-width: 100px;
-  }
-  .navebar .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .navebar .container .logo {
-    position: absolute;
-    display: block;
-    top: -89vh;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    padding: 20px 69px;
-  }
-  .navebar .container .logo .myimg {
-    max-width: 50px;
-  }
-  .navebar .container .logo .myname {
-    /* display: none; */
-  }
-  .navebar .container .lnk {
-    width: 100% !important;
-  }
-  .navebar .container .lnk ul {
-    flex-direction: row !important;
-    max-width: 100%;
-  }
-  .navebar .lnk ul li {
-    margin: 10px;
-  }
-  .navebar .lnk ul li a p {
-    display: none;
-  }
-  .navebar .social {
-    position: absolute;
-    bottom: -45px;
-  }
-  header {
-    width: 100%;
-    min-width: 100%;
-    left: 0;
-    top: 0px;
-  }
-  .shape {
-    width: 90% !important;
-    height: 50% !important;
-    position: absolute;
-  }
-  #home .container img {
-    display: none;
-  }
-  .active {
-    background: var(--active-color) !important;
-  }
-  .navebar .lnk ul li a::after,
-  .navebar .lnk ul li a::before {
-    display: none;
-  }
-  #aboutme {
-    overflow-y: hidden;
-    overflow-x: auto;
-    flex-wrap: unset !important;
-    justify-content: flex-start !important;
-  }
+#home .container .center {
+  z-index: 1111111;
 }
-
+#home .container img {
+  position: absolute;
+  right: 9%;
+}
 /* #03022a */
 /* #161832 */
 
@@ -305,36 +287,6 @@ header section {
 .heart-icon {
   animation: ani 5s linear infinite;
 }
-#home {
-  height: 100vh;
-  overflow: hidden;
-}
-#home .container .center {
-  z-index: 1111111;
-}
-#home .container img {
-  position: absolute;
-  right: 9%;
-}
-@keyframes pattern-anim {
-  0% {
-    background-position-y: 0;
-  }
-  100% {
-    background-position-y: 800px;
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
-  100% {
-    transform: rotate(360deg);
-    border-radius: 76% 24% 53% 47% / 48% 23% 77% 52% 76% 24% 53% 47% / 48% 23%
-      77% 52%;
-  }
-}
 .cv-btn {
   padding: 12px 40px;
   background: var(--secondry-color);
@@ -345,10 +297,6 @@ header section {
   position: relative;
   overflow: hidden;
 }
-/* .cv-btn:hover {
-  color: var(--color);
-  background-color: var(--active-color);
-} */
 .shape {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   width: 500px;
@@ -363,23 +311,6 @@ header section {
   border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
   animation: spin 50s infinite;
 }
-
-@keyframes growProgressBar {
-  0%,
-  33% {
-    --pgPercentage: 0;
-  }
-  100% {
-    --pgPercentage: var(--value);
-  }
-}
-
-@property --pgPercentage {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 0;
-}
-
 div[role="progressbar"] {
   --size: 10rem;
   --fg: var(--active-color);
@@ -413,7 +344,7 @@ div[role="progressbar"]::before {
   border-radius: 12px;
   background: var(--card-bg);
   flex-direction: column !important;
-  margin: 10px;
+  margin: 20px;
   padding: 3px;
   position: relative;
   border-radius: 6px;
@@ -434,10 +365,7 @@ div[role="progressbar"]::before {
   height: 80%;
   color: #03022a;
 }
-.head {
-  position: absolute;
-  top: -30px;
-}
+
 .skill-card::before {
   content: "";
   width: 104%;
@@ -455,6 +383,73 @@ div[role="progressbar"]::before {
   left: -2%;
   animation: spine 2.5s linear infinite;
 }
+@media only screen and (max-width: 1450px) {
+  .navebar{
+    min-width: 330px;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .navebar .lnk ul li a i {
+    display: block;
+  }
+ .navebar {
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  z-index: 1111111111;
+ }
+ .btn-nave{
+  width: 50px;
+  display: block;
+  background: none;
+  color: var(--icon-color);
+  border: 0;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  transition: var(--transition);
+  line-height: 30px;
+  position: fixed;
+  top: 35px;
+  z-index: 1111111111111;
+  left: 15px;
+ }
+  .navebar .container .logo .myimg {
+    max-width: 50px;
+  }
+
+  .navebar .lnk ul li {
+    margin: 10px;
+  }
+
+
+  header {
+    width: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0px;
+  }
+  .shape {
+    width: 90% !important;
+    height: 50% !important;
+    position: absolute;
+  }
+  #home .container img {
+    display: none;
+  }
+  .active {
+    background: var(--active-color) !important;
+  }
+
+  #about {
+    overflow-y: hidden;
+    overflow-x: auto;
+    flex-wrap: unset !important;
+    justify-content: flex-start !important;
+  }
+
+}
 
 @keyframes spine {
   0% {
@@ -462,5 +457,44 @@ div[role="progressbar"]::before {
   }
   100% {
     --rotate: 360deg;
+  }
+}
+@keyframes growProgressBar {
+  0%,
+  33% {
+    --pgPercentage: 0;
+  }
+  100% {
+    --pgPercentage: var(--value);
+  }
+}
+
+@keyframes pattern-anim {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 800px;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-radius: 76% 24% 53% 47% / 48% 23% 77% 52% 76% 24% 53% 47% / 48% 23%
+      77% 52%;
+  }
+}
+@keyframes loves{
+  0%{
+    font-size: 30px;
+    opacity: 1;
+  }
+  100%{
+    font-size: 80px;
+    opacity: 0.1;
   }
 }

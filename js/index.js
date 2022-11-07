@@ -1,10 +1,41 @@
 let lnk = document.getElementById("lnk");
-let about = document.getElementById("aboutme");
+let about = document.getElementById("about");
 let home = document.getElementById("home");
 let div = document.createElement("div");
+let btnNave = document.querySelector(".btn-nave");
+let navebar = document.querySelector(".navebar");
+let love = document.querySelector(".fa-heart");
+let loves = document.querySelector(".loves");
+window.onload = () => {
+  setTimeout(() => {
+    loves.style.display = "none";
+  }, 5000);
+};
+love.onmouseover = () => {
+  love.style.animation = "loves 2s linear infinite";
+  setTimeout(() => {
+    love.style.animation = "";
+  }, 1000);
+};
+love.onmouseoleave = () => {
+  love.style.animation = "";
+};
 
-window.onscroll = () => {
-  scrollY >= 600 ? console.log("g") : console.log("T");
+const showNave = () => {
+  console.log(Number(navebar.style.width.replace("px", "")));
+  if (navebar.style.width === "0px" || navebar.style.width === "") {
+    navebar.style.width = "315px";
+    btnNave.innerText = "X";
+  } else {
+    navebar.style.width = "";
+    btnNave.innerText = "|||";
+  }
+};
+btnNave.onclick = () => {
+  showNave();
+};
+navebar.onclick = () => {
+  showNave();
 };
 const select = (list, target, classActive) => {
   for (let i = 0; i < list.length; i++) {
@@ -21,7 +52,6 @@ let icons = [
   "fa-diagram-project",
   "fa-paper-plane",
 ];
-
 lnks.map((link) => {
   let li = document.createElement("li");
   let i = document.createElement("i");
@@ -121,26 +151,3 @@ const createCard = () => {
   }
 };
 createCard();
-
-// .skill-card::after {
-//   position: absolute;
-//   content: "";
-//   top: calc(var(--card-height) / 6);
-//   left: 0;
-//   right: 0;
-//   z-index: -1;
-//   height: 100%;
-//   width: 100%;
-//   margin: 0 auto;
-//   transform: scale(0.8);
-//   filter: blur(calc(var(--card-height) / 6));
-//   background-image: linear-gradient(
-//     var(--rotate),
-//     var(--secondry-color),
-//     var(--active-color) 43%,
-//     var(--secondry-color)
-//   );
-//   opacity: 1;
-//   transition: opacity 0.5s;
-//   animation: spine 2.5s linear infinite;
-// }
