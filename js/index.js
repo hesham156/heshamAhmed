@@ -9,8 +9,12 @@ let loves = document.querySelector(".loves");
 let toleft = document.querySelector(".toleft");
 let toright = document.querySelector(".toright");
 const dark = document.querySelector(".dark");
+const thx = document.querySelector(".thx");
+const likebtn = document.querySelector(".likebtn");
 var r = document.querySelector(":root");
-
+AOS.init({
+  duration: 1200,
+});
 const chbg = () => {
   if (localStorage.getItem("them") === "dark") {
     r.style.setProperty("--icon-color", "aliceblue");
@@ -91,13 +95,8 @@ const select = (list, target, classActive) => {
 };
 let ul = document.createElement("ul");
 ul.classList.add("center", "flex-direction-column", "w-100");
-let lnks = ["home", "about me", "project", "connect"];
-let icons = [
-  "fa-house",
-  "fa-address-card",
-  "fa-diagram-project",
-  "fa-paper-plane",
-];
+let lnks = ["home", "skills", "project", "connect"];
+let icons = ["fa-house", "fa-star", "fa-diagram-project", "fa-paper-plane"];
 lnks.map((link) => {
   let li = document.createElement("li");
   let i = document.createElement("i");
@@ -121,19 +120,13 @@ lnks.map((link) => {
 lnk.appendChild(ul);
 let a = document.getElementsByTagName("a");
 window.onscroll = () => {
-  if (scrollY >= 0 && scrollY <= window.innerHeight / 2) {
+  if (scrollY >= 0 && scrollY <= 500) {
     select(a, 0, "active");
-  } else if (
-    scrollY >= window.innerHeight / 2 &&
-    scrollY <= window.innerHeight
-  ) {
+  } else if (scrollY >= 500 && scrollY <= 1100) {
     select(a, 1, "active");
-  } else if (
-    scrollY >= window.innerHeight &&
-    scrollY <= 2 * window.innerHeight
-  ) {
+  } else if (scrollY >= 1100 && scrollY <= 2000) {
     select(a, 2, "active");
-  } else if (scrollY > 2 * window.innerHeight) {
+  } else if (scrollY > 2000) {
     select(a, 3, "active");
   }
 };
@@ -251,34 +244,9 @@ const addProCard = () => {
     div2.appendChild(div4);
 
     div1.appendChild(div2);
-
+    div1.dataset.aos = "fade-up";
     allPro.appendChild(div1);
   });
 };
 
 addProCard();
-// <div class="pro-card center flex-column">
-// <div class="pro-imgs-bar center w-100 position-relative ">
-
-//     <div class="center w-100 h-100">
-//     <img width="100%" src="./asset/img/pro1/Screenshot from 2022-11-07 11-15-31.png"/>
-// </div>
-
-//        <div class="pro-ditails flex-column center w-100">
-//         <div class="w-100 center">
-//             <h3>WhatsApp</h3>
-//         </div>
-//         <div class="about-pro w-100 center justify-content-around">
-//             <p>html</p>
-//             <p>css</p>
-//             <p>js</p>
-//             <p>bootstrap</p>
-//           </div>
-//         <div class="pro-icons w-100 center justify-content-around">
-//          <a href="/"> <i class="fa-brands fa-github"></i></a>
-//          <a href="/"><i class="fa-solid fa-eye"></i> </a>
-//         </div>
-// </div>
-
-// </div>
-// </div>

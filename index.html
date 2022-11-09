@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+
     <title>H.A</title>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/normalize.css"/>
     <link rel="stylesheet" href="./css/index.css"/>
 </head>
-<body>
+<body class="center">
+  
     <div class="w-100 position-relative center">
         <!-- change mode -->
         <button class="dark"><i class="fa-solid fa-moon"></i></button>
@@ -24,6 +27,10 @@
                 <img class="w-100" src="./asset/img/my.jpg" alt="hesham ahmed"/>
             </div>
             <div class="myname w-100">
+                <button class="like-btn" id="likebtn">
+                    <i class="fa-solid fa-thumbs-up"></i>
+
+                </button>
                 <h2>Hesham Ahmed</h2>
             </div>
             </div>
@@ -64,9 +71,9 @@
     </nav>
     <!-- header -->
     <header>
-        <div class="container">
+        <div class=" container">
             <!-- home -->
-            <section id="home" class="w-100 center justify-content-start">
+            <section id="home" data-aos="fade-up" class=" w-100 center justify-content-start">
                 <div class="container center position-relative h-100 w-100 justify-content-around">
                     <div class="center flex-column align-items-start">
                     <p>Hi, My Name Is </p>
@@ -84,12 +91,12 @@
 
             </section>
             <!-- skills -->
-            <section id="aboutme" class="center flex-wrap position-relative">
+            <section id="skills" data-aos="fade-up" class=" center flex-wrap position-relative">
 
                 <div class="head center">
                     <h2>Skills</h2>
                 </div>
-              <div id="about" class="center w-100 flex-wrap position-relative"></div>
+              <div id="about" data-aos="fade-up" class="center w-100 flex-wrap position-relative"></div>
               
                <div class="boint center w-100">
                 <button class="toleft active">
@@ -100,7 +107,7 @@
                </div>
             </section>
             <!-- projects -->
-            <section id="project" class="center flex-wrap position-relative">
+            <section id="project" data-aos="fade-up" class=" center flex-wrap position-relative">
                 <div class="head center">
                     <h2>project</h2>
                 </div>
@@ -110,9 +117,12 @@
                 
             </section>
             <!-- connectme -->
-            <section id="connect" class="center flex-wrap position-relative">
+            <section id="connect" data-aos="fade-up" class="center flex-wrap position-relative">
                 <div class="head center">
                     <h2>connect</h2>
+                </div>
+                <div>
+
                 </div>
             </section>
 
@@ -128,6 +138,12 @@
 
     </div>
 </div>
+<div class="thx">
+    <div class="overlay h-100 w-100"></div>
+ <h2>THANK YOU !!</h2>
+</div>
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
 <script src="https://kit.fontawesome.com/8588c9a79c.js" crossorigin="anonymous"></script>
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
