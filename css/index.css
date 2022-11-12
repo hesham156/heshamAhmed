@@ -455,20 +455,12 @@ overflow: hidden;
 
 /* connect */
 #connect{
-  height: 50vh;
+  min-height: 50vh;
+  height: auto;
+  margin: 30px;
 }
-.form textarea {
-  margin: 10px;
-  padding: 10px;
-  outline: none;
-  border-radius: 7px;
-}
-.form textarea{
-   max-height: 230px;
-   min-height: 230px;
-   min-width: 300px;
 
-}
+
 
 .form .send{
   position: relative;
@@ -529,10 +521,11 @@ overflow: hidden;
 }
 
 .form__field:focus {
-  padding-bottom: 6px;
+  padding-bottom: 10px;
+  margin: 10px;
   font-weight: 700;
   border-width: 3px;
-  border-image: var(--secondry-color);
+  border-color: var(--secondry-color);
   border-image-slice: 1;
 }
 .form__field:focus ~ .form__label {
