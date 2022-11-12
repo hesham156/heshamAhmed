@@ -713,4 +713,35 @@ overflow: hidden;
 
   }
 }
+.my-email,.my-phone{
+  position: absolute;
+    transform: rotate(90deg);
+    letter-spacing: 4px;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.my-email{
+  left: -173px;
+  bottom: 140px
+px
+;
+}
+.my-phone{
+  height: auto;
+  padding: 0;
+  right: -182px;
+  margin: 0;
+  bottom: 140px;
+  width: 328px;}
+.my-email p,.my-phone p{
+  margin: 0;
+}
+.my-email::after ,.my-phone::after{
+  content: '';
+    width: 100px;
+    height: 1px;
+    background: var(--secondry-color);
+}
 /* / */
