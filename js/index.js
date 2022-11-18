@@ -66,6 +66,15 @@ let pro = [
     ["html", "css", "Js", "ReactJS", "Node.js"],
     ["https://github.com/hesham156/heshamAhmed", false],
   ],
+  [
+    "Azzrak",
+    "./asset/img/pro6/Screenshot from 2022-11-18 19-33-00.png",
+    ["html", "css", "Js", "fontawesome", "bootstrap"],
+    [
+      "https://github.com/hesham156/azzrak",
+      "https://hesham156.github.io/azzrak/",
+    ],
+  ],
 ];
 const chbg = () => {
   if (localStorage.getItem("them") === "dark") {
