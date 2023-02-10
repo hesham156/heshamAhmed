@@ -25,6 +25,10 @@ let skill = [
   ["JS", "85%"],
   ["Bootstrap", "95%"],
   ["ReactJS", "85%"],
+  ['Wordpress','70%'],
+  ['salla','95%'],
+  ['zid','95%'],
+  ['shopify','90%']
 ];
 let pro = [
   [
@@ -74,7 +78,12 @@ let pro = [
       "https://github.com/hesham156/azzrak",
       "https://hesham156.github.io/azzrak/",
     ],
-  ],
+  ],[
+    "",
+    "./asset/img/pro7/img",
+    ["salla"],
+    [false,'https://rising-2030.com/']
+  ]
 ];
 const chbg = () => {
   if (localStorage.getItem("them") === "dark") {
